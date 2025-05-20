@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Кто дежурный?</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f8ff;
+    }
+
+    .container {
+      text-align: center;
+      padding: 2rem;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .name {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #4a90e2;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .name {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Сегодня дежурный:</h1>
+    <div class="name" id="dutyPerson"></div>
+  </div>
+
+  <script>
+    const people = ["Миля", "Папа", "Никита"];
+
+    const today = new Date();
+    const dayIndex = Math.floor(today.getTime() / (1000 * 60 * 60 * 24));
+    
+    const personIndex = dayIndex % people.length;
+
+    document.getElementById("dutyPerson").textContent = people[personIndex];
+  </script>
+</body>
+</html>
